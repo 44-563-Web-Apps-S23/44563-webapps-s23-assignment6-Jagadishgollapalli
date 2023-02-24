@@ -1,0 +1,15 @@
+.form-group label{
+    display: block;
+}
+.form-block{
+    margin: auto;
+}
+input{
+    margin-top: 5px;
+}
+.button{
+    background-color: blueviolet;
+    color: aquamarine;
+    border: none;
+    border-radius: 2px;
+}
