@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <link rel="stylesheet" href="style.css" />
+  <body>
+    <h2>Jagadish Gollapalli- shows currency conversions</h2>
+    <br />
+    <div class="container">
+      <form class="form-group">
+        <label for="base_input">Enter base amount</label>
+        <input type="number" id="base_amount" name="base_amount" value="50" />
+        <br />
+
+        <label for="conversion_rate_input">Enter the conversion rate</label>
+        <input
+          type="number"
+          id="conversion_rate"
+          name="conversion_rate"
+          value="35"
+        />
+        <br />
+
+        <input type="button" onclick="convert()" value="Show conversions" />
+      </form>
+    </div>
+    <div class="container">
+      <p id="result">This text will be replaced</p>
+    </div>
+    <script>
+      function convert() {
+        let base_amount = document.getElementById("base_amount").value;
+        let conversion_rate = document.getElementById("conversion_rate").value;
+        let toShow = " ";
+        if (conversion_rate - Math.floor(conversion_rate) != 0) {
+          for (let i = 0; i < 5; i++) {
+            value =
+              base_amount + " is " + (base_amount * conversion_rate).toFixed(1);
+            toShow = toShow + value + "; ";
+            base_amount = base_amount * 2;
+          }
+        } else {
+          for (let i = 0; i < 5; i++) {
+            value = base_amount + " is " + base_amount * conversion_rate;
+            toShow = toShow + value + "; ";
+            base_amount = base_amount * 2;
+          }
+        }
+        document.getElementById(
+          "result"
+        ).innerHTML = `<p>Conversions are : ${toShow}</p>`;
+      }
+    </script>
+  </body>
+</html>
