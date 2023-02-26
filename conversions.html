@@ -43,7 +43,26 @@
     <div class="container">
       <p id="result">This text will be replaced</p>
     </div>
+    <div class="container">
+      <form>
+        <input type="radio" id="average" name="individual" value="mean"   
+           onclick="chooseOp()">
+        <label for="average">average</label></br>
+      
+        <input type="radio" id="maximum" name="individual"
+           value="maximum" onclick="chooseOp()">
+        <label for="maximum">max</label></br>
+      
+        <input type="radio" id="minimum" name="individual" name="individual"  
+           value="minimum" onclick="chooseOp()">
+        <label for="minimum">min</label></br>
+      </form>
+      <div class="container">
+        <p id="radio_result">This text will be replaced</p>
+      </div>
+    </div>
     <script>
+      //onclick conversion method
       function convert() {
         let base_amount = document.getElementById("base_amount").value;
         let conversion_rate = document.getElementById("conversion_rate").value;
@@ -66,6 +85,50 @@
           "result"
         ).innerHTML = `<p>Conversions are : ${toShow}</p>`;
       }
+
+      //onclick radio result function
+      function chooseOp(){
+        let base_amount = document.getElementById("base_amount").value;
+        let conversion_rate = document.getElementById("conversion_rate").value;
+        average = document.getElementById("average").checked;
+        maximum = document.getElementById("maximum").checked;
+        minimum = document.getElementById("minimum").checked;
+        
+        if(average){
+          let opt = (base_amount*conversion_rate)/2;
+          document.getElementById("radio_result").innerHTML = `<p>average of ${base_amount} and ${conversion_rate} is ${opt}</p>`
+        }else if(maximum){
+          let max = Math.max(base_amount, conversion_rate);
+          document.getElementById("radio_result").innerHTML = `<p>maximum of ${base_amount} and ${conversion_rate} is ${max}</p>`
+        }else if(minimum){
+          let min = Math.min(base_amount, conversion_rate);
+          document.getElementById("radio_result").innerHTML = `<p>minimum of ${base_amount} and ${conversion_rate} is ${min}</p>`
+        }
+         }  
     </script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+<!--alternate ifelse for chooseOp() -->
+<!-- else if(maximum){
+  if(base_amount > conversion_rate){
+    console.log("true");
+    document.getElementById("radio_result").innerHTML = `<p>maximum of ${base_amount} and ${conversion_rate} is ${base_amount}</p>`
+  }else{
+    console.log("false");
+    document.getElementById("radio_result").innerHTML = `<p>maximum of ${base_amount} and ${conversion_rate} is ${conversion_rate}</p>`
+  }
+}else if(minimum){
+  if(base_amount < conversion_rate){
+    document.getElementById("radio_result").innerHTML = `<p>minimum of ${base_amount} and ${conversion_rate} is ${base_amount}</p>`
+  }else{
+    document.getElementById("radio_result").innerHTML = `<p>minimum of ${base_amount} and ${conversion_rate} is ${conversion_rate}</p>` 
+  }
+  } -->
