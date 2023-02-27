@@ -17,6 +17,7 @@
           integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
           crossorigin="anonymous"
         ></script>
+        <link rel="stylesheet" href="style.css">
       </head>
   <body>
     <h2>Jagadish Gollapalli - chooses candy</h2>
@@ -24,10 +25,11 @@
       <form>
         <input
           type="checkbox"
-          id="form1_age"
+          id="dark"
           name="check"
           step="2"
           value="True"
+          checked
         />
         <label for="dark">Dark Chocolate</label>
         <br />
@@ -35,10 +37,10 @@
        
         <input
           type="checkbox"
-          id="form1_nick"
+          id="nuts"
           name="check"
-          autofocus
           value="True"
+          checked
         />
         <label for="nuts">Nuts</label>
         <br />
@@ -46,9 +48,8 @@
        
         <input
           type="checkbox"
-          id="form1_nick"
+          id="chewy"
           name="check"
-          autofocus
           value="False"
         />
         <label for="chewy">Chewy</label>
@@ -56,14 +57,74 @@
 
         <input type="button" onclick="selectBox()" value="Select a box" />
       </form>
-    </div>
-    <div class="container">
-      <p id="result">my_candy_box</p>
+      <div class="container">
+        <p id="result">my_candy_box</p>
+      </div>
+      <br/>
+      <form class="form-group">
+        <label for="size">Enter the size</label>
+        <input
+          type="text"
+          id="size"
+          name="check"
+          value="size"
+        />
+        <br />
+        <label for="price">Enter price</label>
+        <input
+          type="text"
+          id="price"
+          name="check"
+        />
+        <br/>
+        <input type="button" onclick="updateBox()" value="Update the box" />
+      </form>
+      <div class="container">
+        <p id="property">Your inputs appear here</p>
+      </div>
     </div>
 
     <script>
+      //SELECT BOX
+      let my_candy_box = {};
+      let candy_output = document.getElementById("result");
       function selectBox() {
         let my_candy_box = {};
+        let dark = document.getElementById("dark").checked
+        let nuts = document.getElementById("nuts").checked
+        let chewy = document.getElementById("chewy").checked
+        console.log(my_candy_box);
+        if(dark){
+            my_candy_box.dark = true
+            
+        }else{
+            my_candy_box.dark = false;
+        }
+        if(nuts){
+            my_candy_box.nuts = true
+            
+        }else{
+            my_candy_box.nuts = false;
+        }
+        if(chewy){
+            my_candy_box.chewy = true
+            
+        }else{
+            my_candy_box.chewy = false;
+         
+        }
+        candy_output.innerHTML = "DARK " + my_candy_box.dark +" "+ "NUTS " + my_candy_box.nuts +" "+ "CHEWY " + my_candy_box.chewy;
+      }
+      //UPDATE BOX
+      function updateBox() {
+        let size = document.getElementById("size").value;
+        let price = document.getElementById("price").value;
+        if(!size && !price || !size && price || size && !price){
+            document.getElementById("property").innerText = "Please enter both size and price";
+        }else{
+            my_candy_box[size] = price;
+            document.getElementById("property").innerHTML = "my_candy_box " +":"+  JSON.stringify(my_candy_box);
+        }
       }
     </script>
   </body>
