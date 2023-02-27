@@ -63,6 +63,8 @@
     </div>
     <script>
       //onclick conversion method
+      let base_amount;
+      let conversion_rate;
       function convert() {
         let base_amount = document.getElementById("base_amount").value;
         let conversion_rate = document.getElementById("conversion_rate").value;
@@ -90,12 +92,13 @@
       function chooseOp(){
         let base_amount = document.getElementById("base_amount").value;
         let conversion_rate = document.getElementById("conversion_rate").value;
-        average = document.getElementById("average").checked;
+        //console.log(base_amount, conversion_rate);
+        mean = document.getElementById("average").checked;
         maximum = document.getElementById("maximum").checked;
         minimum = document.getElementById("minimum").checked;
         
-        if(average){
-          let opt = (base_amount*conversion_rate)/2;
+        if(mean){
+          let opt = ((parseInt(base_amount) + parseInt(conversion_rate))/2);
           document.getElementById("radio_result").innerHTML = `<p>average of ${base_amount} and ${conversion_rate} is ${opt}</p>`
         }else if(maximum){
           let max = Math.max(base_amount, conversion_rate);

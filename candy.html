@@ -114,6 +114,9 @@
          
         }
         candy_output.innerHTML = "DARK " + my_candy_box.dark +" "+ "NUTS " + my_candy_box.nuts +" "+ "CHEWY " + my_candy_box.chewy;
+        document.getElementById("dark").checked = false;
+        document.getElementById("nuts").checked = false;
+        document.getElementById("chewy").checked = false;
       }
       //UPDATE BOX
       function updateBox() {
@@ -125,7 +128,7 @@
             my_candy_box[size] = price;
             document.getElementById("property").innerHTML = "my_candy_box " +":"+  JSON.stringify(my_candy_box);
         }
-      }
+      } 
     </script>
   </body>
 </html>
