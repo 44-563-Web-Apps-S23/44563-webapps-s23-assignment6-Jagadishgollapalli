@@ -24,11 +24,11 @@
   </head>
   <link rel="stylesheet" href="style.css" />
   <body>
-    <h1>Jagadish Gollapalli - Painter entry</h1>
+    <h2>Jagadish Gollapalli - Painter entry</h2>
     <br />
     <div class="container">
       <form class="form-group">
-        <label for="hidden_painter">The hidden painter name</label>
+        <label for="hidden_painter"><span>The hidden painter name</span></label>
         <input
           type="password"
           id="password"
@@ -40,7 +40,7 @@
         />
         <br />
 
-        <label for="Guess_painter">Guess the painter </label>
+        <label for="Guess_painter"><span>Guess the painter</span></label>
         <input
           type="text"
           id="guess"
@@ -51,7 +51,7 @@
         <br />
 
         <input
-          class="button"
+          class="btn btn-dark"
           type="button"
           onclick="checkPainter()"
           value="Check the guess"
@@ -83,13 +83,13 @@
         alert("You got it right");
         document.getElementById(
           "result"
-        ).innerHTML = `<p>GoodCount: ${good}</p>`;
+        ).innerHTML = `<p><span style = "background-color:#d9f8d3">GoodCount: ${good}</span></p>`;
       } else {
         oops++;
         alert("You got it wrong");
         document.getElementById(
           "result"
-        ).innerHTML = `<p>OopsCount: ${oops}</p>`;
+        ).innerHTML = `<p><span style = "background-color:#f1a6a6">OopsCount: ${oops}</span></p>`;
         noOfGuesses(oops);
       }
     }

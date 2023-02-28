@@ -4,15 +4,21 @@
 input{
     margin-top: 5px;
 }
-.button{
-    background-color: blueviolet;
-    color: aquamarine;
-    border: none;
-    border-radius: 2px;
-}
 img{
     height: 100px;
     width: 100px;
     border:0.5px solid rgb(23, 68, 227);
     border-radius: 3px;
+}
+h2{
+    text-align: center;
+    color: cornsilk;
+    background-color: slategray;
+}
+label span{
+    margin: 2px;
+    background-color: aquamarine;
+}
+input[type='radio']{
+    background-color: #f791bb;
 }

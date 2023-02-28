@@ -55,14 +55,11 @@
         <label for="chewy">Chewy</label>
         <br />
 
-        <input type="button" onclick="selectBox()" value="Select a box" />
+        <input class="btn btn-dark" type="button" onclick="selectBox()" value="Select a box" />
       </form>
-      <div class="container">
-        <p id="result">my_candy_box</p>
-      </div>
       <br/>
       <form class="form-group">
-        <label for="size">Enter the size</label>
+        <label for="size"><span>Enter the size</span></label>
         <input
           type="text"
           id="size"
@@ -70,17 +67,17 @@
           value="size"
         />
         <br />
-        <label for="price">Enter price</label>
+        <label for="price"><span>Enter price</span></label>
         <input
           type="text"
           id="price"
           name="check"
         />
         <br/>
-        <input type="button" onclick="updateBox()" value="Update the box" />
+        <input class="btn btn-dark" type="button" onclick="updateBox()" value="Update the box" />
       </form>
       <div class="container">
-        <p id="property">Your inputs appear here</p>
+        <p id="result">my_candy_box</p>
       </div>
     </div>
 
@@ -89,7 +86,7 @@
       let my_candy_box = {};
       let candy_output = document.getElementById("result");
       function selectBox() {
-        let my_candy_box = {};
+        // let my_candy_box = {};
         let dark = document.getElementById("dark").checked
         let nuts = document.getElementById("nuts").checked
         let chewy = document.getElementById("chewy").checked
@@ -114,7 +111,7 @@
          
         }
         candy_output.innerHTML = "DARK " + my_candy_box.dark +" "+ "NUTS " + my_candy_box.nuts +" "+ "CHEWY " + my_candy_box.chewy;
-        document.getElementById("dark").checked = false;
+        document.getElementById("dark").checked = false;  
         document.getElementById("nuts").checked = false;
         document.getElementById("chewy").checked = false;
       }
@@ -123,10 +120,11 @@
         let size = document.getElementById("size").value;
         let price = document.getElementById("price").value;
         if(!size && !price || !size && price || size && !price){
-            document.getElementById("property").innerText = "Please enter both size and price";
+            document.getElementById("result").innerText = "Please enter both size and price";
         }else{
+            my_candy_box = {};
             my_candy_box[size] = price;
-            document.getElementById("property").innerHTML = "my_candy_box " +":"+  JSON.stringify(my_candy_box);
+            document.getElementById("result").innerHTML = "my_candy_box " +":"+  JSON.stringify(my_candy_box);
         }
       } 
     </script>
